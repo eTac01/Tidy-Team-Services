@@ -1,0 +1,299 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Enhanced color palette with more sophisticated blues and complementary colors */
+  --background: oklch(0.99 0.005 240); /* Subtle blue-tinted white */
+  --foreground: oklch(0.15 0.02 240); /* Deep blue-black */
+  --card: oklch(0.98 0.01 240 / 0.95); /* Subtle blue-tinted cards */
+  --card-foreground: oklch(0.15 0.02 240); /* Deep blue-black text */
+  --popover: oklch(0.99 0.005 240 / 0.98); /* Clean popover */
+  --popover-foreground: oklch(0.15 0.02 240); /* Deep text */
+  --primary: oklch(0.55 0.25 235); /* Refined electric blue */
+  --primary-foreground: oklch(0.99 0.005 240); /* Clean white */
+  --secondary: oklch(0.92 0.02 240); /* Subtle blue-gray */
+  --secondary-foreground: oklch(0.25 0.03 240); /* Dark blue-gray */
+  --muted: oklch(0.88 0.015 240 / 0.8); /* Soft blue-gray */
+  --muted-foreground: oklch(0.45 0.02 240); /* Medium blue-gray */
+  --accent: oklch(0.65 0.2 45); /* Warm amber accent */
+  --accent-foreground: oklch(0.99 0.005 240); /* Clean white */
+  --destructive: oklch(0.58 0.25 15); /* Warm red */
+  --destructive-foreground: oklch(0.99 0.005 240); /* Clean white */
+  --border: oklch(0.85 0.01 240 / 0.3); /* Subtle blue borders */
+  --input: oklch(0.96 0.01 240); /* Light blue input */
+  --ring: oklch(0.55 0.25 235); /* Primary focus ring */
+  --chart-1: oklch(0.55 0.25 235); /* Primary blue */
+  --chart-2: oklch(0.65 0.2 45); /* Amber */
+  --chart-3: oklch(0.6 0.2 160); /* Teal */
+  --chart-4: oklch(0.65 0.2 300); /* Purple */
+  --chart-5: oklch(0.6 0.2 15); /* Coral */
+  --radius: 0.5rem;
+  --sidebar: oklch(0.96 0.01 240); /* Light sidebar */
+  --sidebar-foreground: oklch(0.15 0.02 240); /* Dark sidebar text */
+  --sidebar-primary: oklch(0.55 0.25 235); /* Primary sidebar */
+  --sidebar-primary-foreground: oklch(0.99 0.005 240); /* White sidebar text */
+  --sidebar-accent: oklch(0.65 0.2 45); /* Amber sidebar accent */
+  --sidebar-accent-foreground: oklch(0.99 0.005 240); /* White accent text */
+  --sidebar-border: oklch(0.85 0.01 240 / 0.3); /* Subtle sidebar border */
+  --sidebar-ring: oklch(0.55 0.25 235); /* Primary sidebar ring */
+
+  /* Added service-specific color variables */
+  --service-interior: oklch(0.6 0.2 160); /* Teal for interior */
+  --service-exterior: oklch(0.55 0.25 235); /* Primary blue for exterior */
+  --service-maintenance: oklch(0.65 0.2 45); /* Amber for maintenance */
+  --service-premium: oklch(0.65 0.2 300); /* Purple for premium */
+}
+
+.dark {
+  /* Enhanced dark mode with better contrast and sophisticated colors */
+  --background: oklch(0.08 0.01 240); /* Deep blue-black */
+  --foreground: oklch(0.95 0.01 240); /* Clean blue-white */
+  --card: oklch(0.12 0.015 240 / 0.9); /* Dark blue cards */
+  --card-foreground: oklch(0.95 0.01 240); /* Clean text */
+  --popover: oklch(0.08 0.01 240 / 0.98); /* Dark popover */
+  --popover-foreground: oklch(0.95 0.01 240); /* Clean popover text */
+  --primary: oklch(0.7 0.3 235); /* Bright electric blue */
+  --primary-foreground: oklch(0.08 0.01 240); /* Dark text on primary */
+  --secondary: oklch(0.18 0.02 240); /* Dark blue-gray */
+  --secondary-foreground: oklch(0.85 0.02 240); /* Light secondary text */
+  --muted: oklch(0.25 0.02 240 / 0.6); /* Muted dark blue */
+  --muted-foreground: oklch(0.65 0.02 240); /* Medium light text */
+  --accent: oklch(0.75 0.25 45); /* Bright amber accent */
+  --accent-foreground: oklch(0.08 0.01 240); /* Dark accent text */
+  --destructive: oklch(0.65 0.3 15); /* Bright red */
+  --destructive-foreground: oklch(0.95 0.01 240); /* Clean white */
+  --border: oklch(0.25 0.02 240 / 0.4); /* Dark blue borders */
+  --input: oklch(0.15 0.02 240); /* Dark input */
+  --ring: oklch(0.7 0.3 235); /* Bright focus ring */
+  --chart-1: oklch(0.7 0.3 235); /* Bright primary */
+  --chart-2: oklch(0.75 0.25 45); /* Bright amber */
+  --chart-3: oklch(0.7 0.25 160); /* Bright teal */
+  --chart-4: oklch(0.75 0.25 300); /* Bright purple */
+  --chart-5: oklch(0.7 0.25 15); /* Bright coral */
+  --sidebar: oklch(0.12 0.015 240); /* Dark sidebar */
+  --sidebar-foreground: oklch(0.95 0.01 240); /* Light sidebar text */
+  --sidebar-primary: oklch(0.7 0.3 235); /* Bright sidebar primary */
+  --sidebar-primary-foreground: oklch(0.08 0.01 240); /* Dark sidebar primary text */
+  --sidebar-accent: oklch(0.75 0.25 45); /* Bright sidebar accent */
+  --sidebar-accent-foreground: oklch(0.08 0.01 240); /* Dark sidebar accent text */
+  --sidebar-border: oklch(0.25 0.02 240 / 0.4); /* Dark sidebar border */
+  --sidebar-ring: oklch(0.7 0.3 235); /* Bright sidebar ring */
+
+  /* Enhanced service colors for dark mode */
+  --service-interior: oklch(0.7 0.25 160); /* Bright teal */
+  --service-exterior: oklch(0.7 0.3 235); /* Bright blue */
+  --service-maintenance: oklch(0.75 0.25 45); /* Bright amber */
+  --service-premium: oklch(0.75 0.25 300); /* Bright purple */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Added service color tokens */
+  --color-service-interior: var(--service-interior);
+  --color-service-exterior: var(--service-exterior);
+  --color-service-maintenance: var(--service-maintenance);
+  --color-service-premium: var(--service-premium);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background: var(--background);
+    scroll-behavior: smooth;
+  }
+
+  /* Enhanced glow effects with better color harmony */
+  .neon-glow {
+    box-shadow: none;
+    transition: none;
+  }
+
+  .neon-text {
+    text-shadow: none;
+  }
+
+  .service-interior-glow,
+  .service-exterior-glow,
+  .service-maintenance-glow,
+  .service-premium-glow {
+    box-shadow: none;
+  }
+
+  /* Neutralize common animation utilities used across pages */
+  .animate-pulse,
+  .animate-bounce,
+  .animate-pulse-glow,
+  .animate-sparkle,
+  .animate-sparkle-delayed,
+  .animate-gradient {
+    animation: none;
+  }
+
+  /* Enhanced glass morphism with better opacity and blur */
+  .glass {
+    background: oklch(0.99 0.005 240 / 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid oklch(0.85 0.01 240 / 0.2);
+    box-shadow: 0 8px 32px oklch(0.15 0.02 240 / 0.1), inset 0 1px 0 oklch(0.99 0.005 240 / 0.8);
+  }
+
+  .dark .glass {
+    background: oklch(0.12 0.015 240 / 0.8);
+    border: 1px solid oklch(0.25 0.02 240 / 0.3);
+    box-shadow: 0 8px 32px oklch(0.08 0.01 240 / 0.5), inset 0 1px 0 oklch(0.25 0.02 240 / 0.3);
+  }
+
+  /* Added service-specific glow effects */
+  .service-interior-glow {
+    box-shadow: 0 0 20px oklch(0.6 0.2 160 / 0.3), 0 0 40px oklch(0.6 0.2 160 / 0.1);
+  }
+
+  .service-exterior-glow {
+    box-shadow: 0 0 20px oklch(0.55 0.25 235 / 0.3), 0 0 40px oklch(0.55 0.25 235 / 0.1);
+  }
+
+  .service-maintenance-glow {
+    box-shadow: 0 0 20px oklch(0.65 0.2 45 / 0.3), 0 0 40px oklch(0.65 0.2 45 / 0.1);
+  }
+
+  .service-premium-glow {
+    box-shadow: 0 0 20px oklch(0.65 0.2 300 / 0.3), 0 0 40px oklch(0.65 0.2 300 / 0.1);
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 20px oklch(0.55 0.25 235 / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px oklch(0.55 0.25 235 / 0.6);
+    }
+  }
+
+  /* Enhanced gradient animations */
+  @keyframes gradient-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 6s ease infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px oklch(0.55 0.25 235 / 0.2), 0 0 20px oklch(0.55 0.25 235 / 0.3);
+  }
+
+  @keyframes sparkle {
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+
+  .animate-sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+  }
+
+  .animate-sparkle-delayed {
+    animation: sparkle 2s ease-in-out infinite;
+    animation-delay: 0.5s;
+  }
+
+  /* Added premium gradient backgrounds */
+  .gradient-primary {
+    background: linear-gradient(135deg, oklch(0.55 0.25 235), oklch(0.65 0.2 45));
+  }
+
+  .gradient-service {
+    background: linear-gradient(135deg, oklch(0.6 0.2 160), oklch(0.55 0.25 235), oklch(0.65 0.2 300));
+  }
+
+  .gradient-premium {
+    background: linear-gradient(135deg, oklch(0.65 0.2 300), oklch(0.55 0.25 235), oklch(0.65 0.2 45));
+  }
+
+  /* accessibility: fully disable glow/blink animations and shadows sitewide (final override) */
+  :root .neon-glow,
+  :root .service-interior-glow,
+  :root .service-exterior-glow,
+  :root .service-maintenance-glow,
+  :root .service-premium-glow {
+    box-shadow: none;
+    filter: none;
+  }
+
+  :root .neon-text {
+    text-shadow: none;
+  }
+
+  :root .animate-pulse,
+  :root .animate-bounce,
+  :root .animate-pulse-glow,
+  :root .animate-sparkle,
+  :root .animate-sparkle-delayed,
+  :root .animate-gradient {
+    animation: none;
+  }
+}
